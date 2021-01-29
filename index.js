@@ -157,13 +157,13 @@ function greeting(fname, lname){
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(length, width, height){
-  this.length = length,
-  this.width = width,
-  this.height = height
+function CuboidMaker(props){
+  this.length = props.length,
+  this.width = props.width,
+  this.height = props.height
 }
 
-const cube = new CuboidMaker(5,5,5)
+// const cube = new CuboidMaker(5,5,5)
 // console.log(cube)
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
@@ -193,7 +193,7 @@ CuboidMaker.prototype.surfaceArea = function() {
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
-const cuboid = new CuboidMaker(4,5,5)
+const cuboid = new CuboidMaker({length: 4, width: 5, height: 6})
 
 
 
@@ -206,16 +206,16 @@ const cuboid = new CuboidMaker(4,5,5)
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
-  constructor(length, width, height) {
-    this.length = length,
-    this.height = height, 
-    this.width = width
+  constructor(props) {
+    this.length = props.length,
+    this.height = props.height, 
+    this.width = props.width
   }
   volume() { return this.height * this.length * this.width }
   surfaceArea() { return 2 * (this.length * this.width + this.length * this.height + this.width * this.height) }
 }
 
-const cuboidTwo = new CuboidMakerTwo(4,5,5)
+const cuboidTwo = new CuboidMakerTwo({length: 4, width: 5, height: 6})
 
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
@@ -254,17 +254,17 @@ const newCube = new CubeMaker(5)
     //console.log('its working');
     return 'bar';
   }
-  // export default{
-  //   foo,
-  //   summation,
-  //   animalNames,
-  //   lowerCaseNames,
-  //   lowPopulationAnimals,
-  //   USApop,
-  //   consume, 
-  //   add,
-  //   multiply,
-  //   greeting,
-  //   CuboidMaker,
-  //   CuboidMakerTwo
-  // }
+  export default{
+    foo,
+    summation,
+    animalNames,
+    lowerCaseNames,
+    lowPopulationAnimals,
+    USApop,
+    consume, 
+    add,
+    multiply,
+    greeting,
+    CuboidMaker,
+    CuboidMakerTwo
+  }
